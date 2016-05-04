@@ -1,0 +1,4 @@
+crawler_for_national_data
+抓取国家统计局数据
+
+main.exe为pyinstaller打包后的运行文件，可直接在windows下任何环境运行
