@@ -171,19 +171,23 @@ class Document(object):
                 self.to_file(node.id,os.path.join(*path_t)+'.csv',encoding=encoding)
 
 if __name__ == "__main__":
-    print '''国家数据(国家统计局)抓取器加强版/This toolkit could automatically download data from National data base. '''
+    
+    temp = u'国家数据(国家统计局)抓取器加强版/This toolkit could automatically download data from National data base. '
+    print temp.encode('gb18030')
     querytype = ''
     while not(querytype == '1' or querytype == '2' or querytype == '3'):
-         print '''请输入查询数据种类/Please input the type of query:
-        1--月度数据/monthly  2--季度数据/seasonly  3--年度数据/yearlly'''
+         temp = u'请输入查询数据种类/Please input the type of query:\n1--月度数据/monthly  2--季度数据/seasonly  3--年度数据/yearlly'
+         print temp.encode('gb18030')
          querytype = raw_input()
     querystarttime = ''
     while not len(querystarttime) == 4:
-        print '''请输入查询的起始年份（四位数）/Please input the start year of query (4 digits):'''
+        temp = u'请输入查询的起始年份（四位数）/Please input the start year of query (4 digits):'
+        print temp.encode('gb18030')
         querystarttime = raw_input()
     queryendtime = 'x'
     while not (len(queryendtime) == 4 or len(queryendtime) == 0):
-        print '''请输入查询的结束年份（四位数，空输入表示最新的年份）/Please input the end year of query (4 digits,Empty Input for the latest year):'''
+        temp = u'请输入查询的结束年份（四位数，空输入表示最新的年份）/Please input the end year of query (4 digits,Empty Input for the latest year):'
+        print temp.encode('gb18030')
         queryendtime = raw_input()
 
     querytime = querystarttime + '-' + queryendtime
@@ -200,9 +204,9 @@ if __name__ == "__main__":
         savefoldname = 'Yearly'
 
     tree=TreeNode()
-##    tree.get_recur()
-##    with open('tree','wb') as f:
-##        pickle.dump(tree,f)
+    tree.get_recur()
+    with open('tree','wb') as f:
+        pickle.dump(tree,f)
 
     with open('tree','rb') as f:
         tree=pickle.load(f)
