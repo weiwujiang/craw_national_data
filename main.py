@@ -200,13 +200,15 @@ if __name__ == "__main__":
         savefoldname = 'Yearly'
 
     tree=TreeNode()
-    tree.get_recur()
-    with open('tree','wb') as f:
-        pickle.dump(tree,f)
+##    tree.get_recur()
+##    with open('tree','wb') as f:
+##        pickle.dump(tree,f)
 
     with open('tree','rb') as f:
         tree=pickle.load(f)
 
+    if not os.path.isdir('temp'):
+        os.mkdir('temp')
     downloader=Downloader(tree,raw_root='temp',date=querytime)
     downloader.download()
     doc=Document(raw_root='temp')
